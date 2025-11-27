@@ -1,0 +1,36 @@
+{
+    "app": {
+        "title": "CivicGPT",
+        "subtitle": "Your Local Government Assistant"
+    },
+    "nav": {
+        "home": "Home",
+        "ask": "Ask",
+        "autofill": "Autofill",
+        "cases": "My Cases",
+        "admin": "Admin"
+    },
+    "home": {
+        "welcome": "Welcome to CivicGPT",
+        "description": "Get answers to your government queries and apply for schemes easily.",
+        "start": "Get Started"
+    },
+    "ask": {
+        "placeholder": "Ask a question (e.g., How to apply for Ration Card?)",
+        "submit": "Ask",
+        "listening": "Listening..."
+    },
+    "autofill": {
+        "select_scheme": "Select Scheme",
+        "enter_data": "Enter your details or paste text",
+        "generate": "Autofill Form",
+        "download": "Download PDF"
+    },
+    "cases": {
+        "id": "Case ID",
+        "scheme": "Scheme",
+        "status": "Status",
+        "date": "Date",
+        "action": "Action"
+    }
+}

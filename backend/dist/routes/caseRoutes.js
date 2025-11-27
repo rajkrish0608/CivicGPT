@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const caseController_1 = require("../controllers/caseController");
+const auth_1 = require("../middleware/auth");
+const router = (0, express_1.Router)();
+router.post('/', auth_1.authenticate, caseController_1.createCase);
+router.get('/my-cases', auth_1.authenticate, caseController_1.getCases);
+router.get('/admin/all', auth_1.authenticate, auth_1.requireAdmin, caseController_1.getAllCases);
+router.patch('/:id/status', auth_1.authenticate, auth_1.requireAdmin, caseController_1.updateCaseStatus);
+exports.default = router;

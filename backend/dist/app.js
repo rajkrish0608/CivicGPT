@@ -1,0 +1,31 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const helmet_1 = __importDefault(require("helmet"));
+const morgan_1 = __importDefault(require("morgan"));
+const app = (0, express_1.default)();
+// Middleware
+app.use((0, cors_1.default)());
+app.use((0, helmet_1.default)());
+app.use((0, morgan_1.default)('dev'));
+app.use(express_1.default.json());
+// Health Check
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
+const qaRoutes_1 = __importDefault(require("./routes/qaRoutes"));
+const caseRoutes_1 = __importDefault(require("./routes/caseRoutes"));
+const autofillRoutes_1 = __importDefault(require("./routes/autofillRoutes"));
+const schemeRoutes_1 = __importDefault(require("./routes/schemeRoutes"));
+// Register Routes
+app.use('/api/auth', authRoutes_1.default);
+app.use('/api/qa', qaRoutes_1.default);
+app.use('/api/cases', caseRoutes_1.default);
+app.use('/api/autofill', autofillRoutes_1.default);
+app.use('/api/schemes', schemeRoutes_1.default);
+exports.default = app;
